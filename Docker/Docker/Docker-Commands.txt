@@ -1,0 +1,59 @@
+
+
+Docker file(use to build docker image) 
+	
+	--> Docker Image 
+		
+		--> Docker Container
+
+
+======================================================================== COMMANDS ==============================================================
+
+
+// Check docker version
+
+docker -v
+
+// pull docker image
+
+docker pull image name
+
+// check docker images
+
+docker images
+
+// Run docker image in interactive and detached mode
+
+docker run --name containerName -it -d imageName
+
+// To check running containers
+
+docker ps , docker ps -a
+
+// To Execute docker container
+
+docker exec -it containerId command(image command)
+
+// To Stop docker container
+
+docker stop containerId/containerName
+
+// To restart container
+
+docker restart containerId/containerName
+
+// To remove containers
+
+docker rm containerId containerId containerId
+
+// To check logs
+
+docker logs containerId/containerName
+
+// To build docker image
+
+docker build -t imageTagName .
+
+// To Run SpringBoot Project
+
+docker run --name containerName -it -p portNum:portNum -d imageName

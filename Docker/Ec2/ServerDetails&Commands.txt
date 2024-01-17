@@ -1,0 +1,94 @@
+
+DNS & Public IP
+	
+	JAVA : ec2-54-206-104-151.ap-southeast-2.compute.amazonaws.com 
+			
+		IP : 54.206.104.151
+
+	REACT : ec2-13-211-86-227.ap-southeast-2.compute.amazonaws.com
+		
+		IP : 13.211.86.227
+	
+Connect to ec2 instance using Git Bash
+	
+	JAVA Instance : ssh -i "mgintelliatech.pem" ubuntu@ec2-54-206-104-151.ap-southeast-2.compute.amazonaws.com
+	
+	REACT Instance : ssh -i "mgintelliatech.pem" ubuntu@ec2-13-211-86-227.ap-southeast-2.compute.amazonaws.com
+
+
+sudo su
+
+
+Get Update Ubuntu OS
+
+	apt-get update
+
+
+Install Java 8 
+	apt install openjdk-8-jdk
+
+
+start tomcat 9
+
+	sudo service tomcat9 start
+	
+Check status tomcat 9
+	
+	service tomcat9 status
+	
+	ps -ef | grep tomcat9
+	
+Stop & Restart tomcat 9
+	
+	service tomcat9 stop
+	
+	service tomcat9 restart
+
+My SQL DB 	
+	
+	mysql -u monit -p
+	
+	username : monit
+	
+	Password : Mg@intellia123	
+	
+	SHOW GRANTS FOR 'monit'@'%';	
+
+	ALTER USER 'monit'@'%' IDENTIFIED BY 'Mg@intellia123';
+
+
+To check running service on Port 8080
+	
+	netstat -tulpn | grep 8080
+
+=========================================================== Create Inbound Rule on EC2 Instance for 8080 port ==========================================================
+
+																		
+																		
+To add an inbound rule to allow incoming traffic on port 8080 in the security group associated with your Amazon EC2 instance, you can follow these steps:
+
+Open the Amazon EC2 Management Console.
+
+Navigate to the "Instances" section.
+
+Select the EC2 instance for which you want to add the inbound rule.
+
+In the bottom panel, under the "Description" tab, locate the "Security groups" section and click on the associated security group.
+
+You will be redirected to the "Security Groups" page. Click on the "Inbound rules" tab.
+
+Click the "Edit inbound rules" button.
+
+Click the "Add rule" button.
+
+Configure the inbound rule as follows:
+
+Type: Select "Custom TCP Rule" from the dropdown menu.
+Port Range: Enter "8080" in the port range field.
+Source: Choose the appropriate option to allow incoming traffic from specific IP addresses, a range of IP addresses, or from anywhere (0.0.0.0/0) based on your requirements.
+Click the "Save rules" button to apply the changes.
+
+The inbound rule allowing incoming traffic on port 8080 should now be added to the security group associated with your EC2 instance. You should be able to access your Tomcat server through port 8080 from the allowed source addresses.
+
+Please note that modifying the security group rules affects the network access permissions for your EC2 instance, so make sure to configure the rules according to your security requirements.																		
+																		
